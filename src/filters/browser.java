@@ -184,19 +184,18 @@ public class browser extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {
         try
         {   
             JFileChooser a = new JFileChooser();
             a.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             a.showOpenDialog(this);
             String pa=a.getSelectedFile().getPath();
-            System.out.println(pa);
             String na = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-            System.out.println(na);
             try{
             File n = new File(pa+na+".jpg");
             ImageIO.write((RenderedImage) photo.getIcon(), ".jpg",n);
+            JOptionPane.showMessageDialog(null,"you save the image in"+pa+"\n named as"+na,"Done",JOptionPane.INFORMATION_MESSAGE); 
             }
             catch(IOException e)
             {
@@ -207,9 +206,9 @@ public class browser extends javax.swing.JFrame {
         {
          JOptionPane.showMessageDialog(null,"Must import an image first","Error",JOptionPane.INFORMATION_MESSAGE);  
         }
-    }//GEN-LAST:event_saveActionPerformed
+    }
 
-    private void browserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browserActionPerformed
+    private void browserActionPerformed(java.awt.event.ActionEvent evt) {
         String pa;
         JFileChooser a = new JFileChooser();
         a.showOpenDialog(this);
@@ -218,21 +217,19 @@ public class browser extends javax.swing.JFrame {
         String s = pa.replaceAll(".*?(.?.?.?)?$", "$1");
         if("jpg".equals(s)||"bmp".equals(s)||"png".equals(s)||"gif".equals(s))
         { 
-        ImageIcon p = new ImageIcon(pa);// set the path
-        Image fr= p.getImage();//conveting Imageicon into image
-        Image n= fr.getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH);//Scale the image 
-        ImageIcon l= new ImageIcon(n);// set the image as Imageicon
+        ImageIcon p = new ImageIcon(pa);
+        Image fr= p.getImage();
+        Image n= fr.getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH); 
+        ImageIcon l= new ImageIcon(n);
         photo.setIcon(l);
         }
         else
         {
         JOptionPane.showMessageDialog(null,"Must enter .jpg or .bmp or .png or .gif","Error",JOptionPane.INFORMATION_MESSAGE);
-        } 
-        
-      
-    }//GEN-LAST:event_browserActionPerformed
+        }    
+    }
 
-    private void redActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redActionPerformed
+    private void redActionPerformed(java.awt.event.ActionEvent evt) {
         try{
         File input = new File (path.getText()); 
         BufferedImage Image = null;
@@ -260,18 +257,17 @@ public class browser extends javax.swing.JFrame {
             Image.setRGB(j, i, p);         
         }
         }
-        ImageIcon p = new ImageIcon(Image);// set the path
-        Image fr= p.getImage();//conveting Imageicon into image
-        Image n= fr.getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH);//Scale the image 
-        ImageIcon l= new ImageIcon(n);// set the image as Imageicon
+        ImageIcon p = new ImageIcon(Image);
+        Image fr= p.getImage();
+        Image n= fr.getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH);
+        ImageIcon l= new ImageIcon(n);
         photo.setIcon(l);
        }
        catch(Exception e){
           JOptionPane.showMessageDialog(null,"Must import an image first","Error",JOptionPane.INFORMATION_MESSAGE); 
        }
-    }//GEN-LAST:event_redActionPerformed
-
-    private void blueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blueActionPerformed
+    }
+    private void blueActionPerformed(java.awt.event.ActionEvent evt) {
           try{
         File input = new File (path.getText()); 
         BufferedImage Image = null;
@@ -299,18 +295,18 @@ public class browser extends javax.swing.JFrame {
             Image.setRGB(j, i, p);         
         }
         }
-        ImageIcon p = new ImageIcon(Image);// set the path
-        Image fr= p.getImage();//conveting Imageicon into image
-        Image n= fr.getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH);//Scale the image 
-        ImageIcon l= new ImageIcon(n);// set the image as Imageicon
+        ImageIcon p = new ImageIcon(Image);
+        Image fr= p.getImage();
+        Image n= fr.getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH);
+        ImageIcon l= new ImageIcon(n);
         photo.setIcon(l);
        }
        catch(Exception e){
           JOptionPane.showMessageDialog(null,"Must import an image first","Error",JOptionPane.INFORMATION_MESSAGE); 
        }
-    }//GEN-LAST:event_blueActionPerformed
+    }
 
-    private void greenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenActionPerformed
+    private void greenActionPerformed(java.awt.event.ActionEvent evt) {
           try{
         File input = new File (path.getText()); 
         BufferedImage Image = null;
@@ -338,22 +334,22 @@ public class browser extends javax.swing.JFrame {
             Image.setRGB(j, i, p);         
         }
         }
-        ImageIcon p = new ImageIcon(Image);// set the path
-        Image fr= p.getImage();//conveting Imageicon into image
-        Image n= fr.getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH);//Scale the image 
-        ImageIcon l= new ImageIcon(n);// set the image as Imageicon
+        ImageIcon p = new ImageIcon(Image);
+        Image fr= p.getImage();
+        Image n= fr.getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH); 
+        ImageIcon l= new ImageIcon(n);
         photo.setIcon(l);
        }
        catch(Exception e){
           JOptionPane.showMessageDialog(null,"Must import an image first","Error",JOptionPane.INFORMATION_MESSAGE); 
        }
-    }//GEN-LAST:event_greenActionPerformed
+    }
 
-    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {
          System.exit(0);
-    }//GEN-LAST:event_exitActionPerformed
+    }
 
-    private void purpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purpleActionPerformed
+    private void purpleActionPerformed(java.awt.event.ActionEvent evt) {
        try{
         File input = new File (path.getText()); 
         BufferedImage Image = null;
@@ -381,18 +377,18 @@ public class browser extends javax.swing.JFrame {
             Image.setRGB(j, i, p);         
         }
         }
-        ImageIcon p = new ImageIcon(Image);// set the path
-        Image fr= p.getImage();//conveting Imageicon into image
-        Image n= fr.getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH);//Scale the image 
-        ImageIcon l= new ImageIcon(n);// set the image as Imageicon
+        ImageIcon p = new ImageIcon(Image);
+        Image fr= p.getImage();
+        Image n= fr.getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH);
+        ImageIcon l= new ImageIcon(n);
         photo.setIcon(l);
        }
        catch(Exception e){
           JOptionPane.showMessageDialog(null,"Must import an image first","Error",JOptionPane.INFORMATION_MESSAGE); 
        }
-    }//GEN-LAST:event_purpleActionPerformed
+    }
 
-    private void CyanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CyanActionPerformed
+    private void CyanActionPerformed(java.awt.event.ActionEvent evt) {
         try{
         File input = new File (path.getText()); 
         BufferedImage Image = null;
@@ -420,18 +416,18 @@ public class browser extends javax.swing.JFrame {
             Image.setRGB(j, i, p);         
         }
         }
-        ImageIcon p = new ImageIcon(Image);// set the path
-        Image fr= p.getImage();//conveting Imageicon into image
-        Image n= fr.getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH);//Scale the image 
-        ImageIcon l= new ImageIcon(n);// set the image as Imageicon
+        ImageIcon p = new ImageIcon(Image);
+        Image fr= p.getImage();
+        Image n= fr.getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH);
+        ImageIcon l= new ImageIcon(n);
         photo.setIcon(l);
        }
        catch(Exception e){
           JOptionPane.showMessageDialog(null,"Must import an image first","Error",JOptionPane.INFORMATION_MESSAGE); 
        }
-    }//GEN-LAST:event_CyanActionPerformed
+    }
 
-    private void yellowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yellowActionPerformed
+    private void yellowActionPerformed(java.awt.event.ActionEvent evt) {
         try{
         File input = new File (path.getText()); 
         BufferedImage Image = null;
@@ -459,16 +455,16 @@ public class browser extends javax.swing.JFrame {
             Image.setRGB(j, i, p);         
         }
         }
-        ImageIcon p = new ImageIcon(Image);// set the path
-        Image fr= p.getImage();//conveting Imageicon into image
-        Image n= fr.getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH);//Scale the image 
-        ImageIcon l= new ImageIcon(n);// set the image as Imageicon
+        ImageIcon p = new ImageIcon(Image);
+        Image fr= p.getImage();
+        Image n= fr.getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH); 
+        ImageIcon l= new ImageIcon(n);
         photo.setIcon(l);
        }
        catch(Exception e){
           JOptionPane.showMessageDialog(null,"Must import an image first","Error",JOptionPane.INFORMATION_MESSAGE); 
        }
-    }//GEN-LAST:event_yellowActionPerformed
+    }
 
     /**
      * @param args the command line arguments
